@@ -39,7 +39,8 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/tailwindcss'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -56,5 +57,14 @@ export default {
         autoprefixer: {}
       }
     }
+  },
+
+  tailwindcss: {
+    cssPath: '~/assets/css/main.css',
+    configPath: 'tailwind.config',
+    exposeConfig: false,
+    config: {},
+    injectPosition: 0,
+    viewer: true,
   }
 }
