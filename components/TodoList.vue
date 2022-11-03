@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <p v-for="todo in listTodo" :key='todo.title'>{{todo.title}} : {{todo.description}}</p>
-  </div>
+  <transition-group name='list' tag='ul'>
+    <li v-for="todo in listTodo" :key='todo.title'>{{todo.title}} : {{todo.description}}</li>
+  </transition-group>
 </template>
 
 <script lang='ts'>
@@ -43,3 +43,10 @@ export default {
   },
 }
 </script>
+
+
+<style scoped>
+  .list-move {
+    transition: all 1s;
+  }
+</style>
