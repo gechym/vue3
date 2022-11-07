@@ -1,8 +1,8 @@
 <template>
   <div>
-    <HeaderComponent :count='count' @increment='handleIncrement'/>
-    <AddTodoInput/>
-    <ItemComponent
+    <header-component :count='count' @increment='handleIncrement'/>
+    <add-todo-input @addTodo="handleAddTodo"/>
+    <item-component
       v-for='todo in todos'
       :key='todo.id'
       :todoProps='todo'
@@ -49,13 +49,18 @@ export default defineComponent({
       todos.value = todos.value.filter((todo) => todo.id !== id)
     }
 
+    const handleAddTodo = (todo : {id: number, text: string, completed: boolean,}) => {
+      todos.value.push(todo)
+    }
+
+
     return {
       count,
       todos,
+      handleAddTodo,
       handleToggleTodoComplete,
       handleIncrement,
       handleDeleteTodo,
-
     }
   }
 })
